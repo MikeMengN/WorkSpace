@@ -1,5 +1,7 @@
 package org.mn.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +31,7 @@ public class UserController {
 			sUser = userService.login(user);
 			HttpSession session = request.getSession();
 			session.setAttribute("sUser", sUser);
+			// 将用户设置进session后，根据用户id去查询用户所拥有的权限
 		} else {
 			return "redirect:/login.jsp";
 		}
