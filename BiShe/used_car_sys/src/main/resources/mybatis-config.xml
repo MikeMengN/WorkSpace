@@ -5,6 +5,6 @@
 <configuration>
     <!-- 设置别名 -->
     <typeAliases>
-        <package name="cn.temptation.domain" />
+        <package name="cn.temptation.bean" />
     </typeAliases>
 </configuration>
