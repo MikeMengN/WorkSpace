@@ -1,5 +1,9 @@
 package org.mn.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.mn.bean.Permissions;
 import org.mn.bean.User;
 
 /**  
@@ -18,5 +22,14 @@ public interface UserDao {
 	 * @return: User      
 	 * @throws
 	 */
-	public User login(String user_name, String user_passwd);
+	public User login(@Param("user_name") String user_name, @Param("user_passwd") String user_passwd);
+	/**
+	 * @Title: perCheck   
+	 * @Description: 根据用户id查询用户权限，返回权限列表  
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: List<Permissions>      
+	 * @throws
+	 */
+	public List<Permissions> perCheck(String user_id);
 }

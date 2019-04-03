@@ -9,7 +9,7 @@
 <title>login</title>
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
-<!--必要样式-->
+<!--å¿è¦æ ·å¼-->
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <!--[if IE]>
 <script src="js/html5.js"></script>
@@ -21,15 +21,15 @@
 				<div id="large-header" class="large-header">
 					<canvas id="demo-canvas"></canvas>
 					<div class="logo_box">
-						<h3>XX二手车欢迎你</h3>
+						<h3>XX二手车</h3>
 						<form action="/user/login" name="f" method="post">
 							<div class="input_outer">
 								<span class="u_user"></span>
-								<input name="user_name" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
+								<input name="user_name" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入用户名">
 							</div>
 							<div class="input_outer">
 								<span class="us_uer"></span>
-								<input name="user_pwd" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+								<input name="user_pwd" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
 							</div>
 							<div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
 						</form>

@@ -1,7 +1,10 @@
 package org.mn.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.mn.bean.Permissions;
 import org.mn.bean.User;
 import org.mn.dao.UserDao;
 import org.mn.service.IUserService;
@@ -15,9 +18,9 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class UserService implements IUserService {
-	@Resource
+	@Resource(name = "userDao")
 	private UserDao userDao;
-	/* (non-Javadoc)
+	/* 
 	 * @see org.mn.service.IUserService#login(org.mn.bean.User)
 	 */
 	@Override
@@ -27,6 +30,14 @@ public class UserService implements IUserService {
 		String user_pwd = user.getUser_passwd();
 		User resultUser = userDao.login(user_name, user_pwd);
 		return resultUser;
+	}
+	/* 
+	 * @see org.mn.service.IUserService#perCheck(java.lang.String)
+	 */
+	@Override
+	public List<Permissions> perCheck(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.perCheck(user_id);
 	}
 
 }
