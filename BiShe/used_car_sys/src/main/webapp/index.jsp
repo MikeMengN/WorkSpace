@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -31,8 +31,9 @@
 								<span class="us_uer"></span>
 								<input name="user_pwd" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
 							</div>
-							<div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
+							<div class="mb2"><a class="act-but submit" href="http://localhost:8080/used_car_sys/user/login" style="color: #FFFFFF">登录</a></div>
 						</form>
+						
 					</div>
 				</div>
 			</div>

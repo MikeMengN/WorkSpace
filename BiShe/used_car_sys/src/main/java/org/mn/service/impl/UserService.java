@@ -8,6 +8,7 @@ import org.mn.bean.Permissions;
 import org.mn.bean.User;
 import org.mn.dao.UserDao;
 import org.mn.service.IUserService;
+import org.mn.util.MD5Utils;
 import org.springframework.stereotype.Service;
 
 /**  
@@ -27,7 +28,9 @@ public class UserService implements IUserService {
 	public User login(User user) {
 		// TODO Auto-generated method stub
 		String user_name = user.getUser_name();
-		String user_pwd = user.getUser_passwd();
+		String user_pwd = null;
+		String str = user.getUser_passwd();
+		user_pwd = MD5Utils.getPwd(str);
 		User resultUser = userDao.login(user_name, user_pwd);
 		return resultUser;
 	}
@@ -41,3 +44,4 @@ public class UserService implements IUserService {
 	}
 
 }
+
