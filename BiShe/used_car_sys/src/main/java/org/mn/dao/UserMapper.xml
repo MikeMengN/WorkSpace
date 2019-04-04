@@ -4,7 +4,7 @@
 <mapper namespace="org.mn.dao.UserDao">
     <!-- 登录验证 -->
     <select id="login" parameterType="java.lang.String" resultType="org.mn.bean.User">
-        SELECT * FROM user WHERE user_name=#{user_name} and user_passwd = #{user_pwd}
+        SELECT * FROM user WHERE user_name=#{user_name} and user_passwd = #{user_passwd}
     </select>
     <!-- 权限获取 -->
     <select id="perCheck" parameterType="java.lang.String" resultType="org.mn.bean.Permissions">

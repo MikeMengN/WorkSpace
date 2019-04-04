@@ -28,10 +28,10 @@ public class UserService implements IUserService {
 	public User login(User user) {
 		// TODO Auto-generated method stub
 		String user_name = user.getUser_name();
-		String user_pwd = null;
+		String user_passwd = null;
 		String str = user.getUser_passwd();
-		user_pwd = MD5Utils.getPwd(str);
-		User resultUser = userDao.login(user_name, user_pwd);
+		user_passwd = MD5Utils.getPwd(str);
+		User resultUser = userDao.login(user_name, user_passwd);
 		return resultUser;
 	}
 	/* 
