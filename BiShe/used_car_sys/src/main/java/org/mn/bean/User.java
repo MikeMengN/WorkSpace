@@ -11,6 +11,8 @@ public class User {
 	private String user_id;
 	// 用户姓名
 	private String user_name;
+	// 用户性别
+	private Integer user_sex;
 	// 用户密码
 	private String user_passwd;
 	// 用户电话号码
@@ -25,13 +27,15 @@ public class User {
 	/**
 	 * @param user_id
 	 * @param user_name
+	 * @param user_sex
 	 * @param user_passwd
 	 * @param user_phone
 	 */
-	public User(String user_id, String user_name, String user_passwd, String user_phone) {
+	public User(String user_id, String user_name, Integer user_sex, String user_passwd, String user_phone) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
+		this.user_sex = user_sex;
 		this.user_passwd = user_passwd;
 		this.user_phone = user_phone;
 	}
@@ -58,6 +62,18 @@ public class User {
 	 */
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+	/**
+	 * @return the user_sex
+	 */
+	public Integer getUser_sex() {
+		return user_sex;
+	}
+	/**
+	 * @param user_sex the user_sex to set
+	 */
+	public void setUser_sex(Integer user_sex) {
+		this.user_sex = user_sex;
 	}
 	/**
 	 * @return the user_passwd
