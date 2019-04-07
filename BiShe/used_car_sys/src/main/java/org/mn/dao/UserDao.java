@@ -32,4 +32,12 @@ public interface UserDao {
 	 * @throws
 	 */
 	public List<Permissions> perCheck(String user_id);
+	
+	/**
+	 * @Title: findAllUserInfo   
+	 * @Description: 查询所有用户   
+	 * @return: List<User>      
+	 * @throws
+	 */
+	public List<User> findAllUserInfo();
 }

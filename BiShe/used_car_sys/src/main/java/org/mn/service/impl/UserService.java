@@ -42,6 +42,14 @@ public class UserService implements IUserService {
 		// TODO Auto-generated method stub
 		return userDao.perCheck(user_id);
 	}
+	/* 
+	 * @see org.mn.service.IUserService#findAllUserInfo()
+	 */
+	@Override
+	public List<User> findAllUserInfo() {
+		// TODO Auto-generated method stub
+		return userDao.findAllUserInfo();
+	}
 
 }
 

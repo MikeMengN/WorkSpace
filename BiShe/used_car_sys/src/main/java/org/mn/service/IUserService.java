@@ -28,4 +28,12 @@ public interface IUserService {
 	 * @throws
 	 */
 	List<Permissions> perCheck(String user_id);
+	
+	/**
+	 * @Title: findAllUserInfo   
+	 * @Description: 查询所有用户信息   
+	 * @return: List<User>      
+	 * @throws
+	 */
+	List<User> findAllUserInfo();
 }
