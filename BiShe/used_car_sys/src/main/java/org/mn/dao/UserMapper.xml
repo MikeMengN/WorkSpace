@@ -9,6 +9,10 @@
     <!-- 权限获取 -->
     <select id="perCheck" parameterType="java.lang.String" resultType="org.mn.bean.Permissions">
         SELECT jsp_name, per_name FROM permissions 
-		where EXISTS(select per_id from role_per where EXISTS(SELECT role_id FROM user_role where user_id = #{user_id}))    
+		where per_id in(select per_id from role_per where role_id in(SELECT role_id FROM user_role where user_id = #{user_id}))
+	</select>
+	<!-- 查询所有用户信息 -->
+    <select id="findAllUserInfo" resultType="org.mn.bean.User">
+        select user_id, user_name, user_phone, user_sex from user    
 	</select>
 </mapper>
