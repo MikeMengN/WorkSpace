@@ -34,10 +34,36 @@ public interface UserDao {
 	public List<Permissions> perCheck(String user_id);
 	
 	/**
+	 * @Title: findAllUserInfo 分页  
+	 * @Description: 查询所有用户   
+	 * @return: List<User>      
+	 * @throws
+	 */
+	public List<User> findAllUserPageInfo(@Param("currIndex") Integer currIndex, @Param("pageSize") Integer pageSize);
+	
+	/**
 	 * @Title: findAllUserInfo   
 	 * @Description: 查询所有用户   
 	 * @return: List<User>      
 	 * @throws
 	 */
 	public List<User> findAllUserInfo();
+	
+	/**
+	 * @Title: modifyPasswd   
+	 * @Description: 修改密码数据访问层   
+	 * @param: @param newPasswd
+	 * @return: int      
+	 * @throws
+	 */
+	public int modifyPasswd(@Param("user_id") String user_id, @Param("newPasswd") String newPasswd);
+	
+	/**
+	 * @Title: registUser   
+	 * @Description: 注册或者增加用户  数据访问层   
+	 * @param: @param user
+	 * @return: int      
+	 * @throws
+	 */
+	public int registUser(@Param("user") User user);
 }

@@ -31,9 +31,36 @@ public interface IUserService {
 	
 	/**
 	 * @Title: findAllUserInfo   
+	 * @Description: 查询所有用户信息   分页
+	 * @return: List<User>      
+	 * @throws
+	 */
+	List<User> findAllUserPageInfo(Integer currIndex, Integer pageSize);
+	
+	/**
+	 * @Title: findAllUserInfo   
 	 * @Description: 查询所有用户信息   
 	 * @return: List<User>      
 	 * @throws
 	 */
 	List<User> findAllUserInfo();
+	
+	/**
+	 * @Title: modifyPasswd   
+	 * @Description: 修改密码业务类   
+	 * @param: @param user_id
+	 * @param: @param user_passwd
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean modifyPasswd(String user_id, String newPasswd);
+	
+	/**
+	 * @Title: registUser   
+	 * @Description: 注册或者添加用户业务处理   
+	 * @param: @param user
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean registUser(User user);
 }

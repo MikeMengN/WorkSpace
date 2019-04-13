@@ -11,8 +11,21 @@
         SELECT jsp_name, per_name FROM permissions 
 		where per_id in(select per_id from role_per where role_id in(SELECT role_id FROM user_role where user_id = #{user_id}))
 	</select>
-	<!-- 查询所有用户信息 -->
-    <select id="findAllUserInfo" resultType="org.mn.bean.User">
-        select user_id, user_name, user_phone, user_sex from user    
+	<!-- 查询所有用户信息(分页) -->
+    <select id="findAllUserPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.User">
+        select user_id, user_name, user_phone, user_sex from user limit ${currIndex}, ${pageSize}   
 	</select>
+	<!-- 查询所有用户信息 -->
+    <select id="findAllUserInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.User">
+        select user_id, user_name, user_phone, user_sex from user   
+	</select>
+	<!-- 查询所有用户信息 -->
+    <update id="modifyPasswd" parameterType="java.lang.String">
+        UPDATE user SET user_passwd = '${newPasswd}' where user_id = ${user_id}  
+	</update>
+	<!-- 后台添加用户或者用户注册 -->
+	<insert id="registUser" parameterType="org.mn.bean.User">  
+	    INSERT INTO STUDENT_TBL (user_id, user_name, user_sex, user_phone, create_time)  
+	    VALUES (${user_id},${user_name},${user_sex},${user_phone},${create_time}) 
+	</insert> 
 </mapper>

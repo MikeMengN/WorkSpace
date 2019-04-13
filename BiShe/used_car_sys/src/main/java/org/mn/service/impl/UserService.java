@@ -1,5 +1,7 @@
 package org.mn.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,6 +11,7 @@ import org.mn.bean.User;
 import org.mn.dao.UserDao;
 import org.mn.service.IUserService;
 import org.mn.util.MD5Utils;
+import org.mn.util.StringUtil;
 import org.springframework.stereotype.Service;
 
 /**  
@@ -46,9 +49,43 @@ public class UserService implements IUserService {
 	 * @see org.mn.service.IUserService#findAllUserInfo()
 	 */
 	@Override
+	public List<User> findAllUserPageInfo(Integer currIndex, Integer pageSize) {
+	
+		// TODO Auto-generated method stub
+		return userDao.findAllUserPageInfo(currIndex, pageSize);
+	}
+	/* 
+	 * @see org.mn.service.IUserService#findAllUserInfo()
+	 */
+	@Override
 	public List<User> findAllUserInfo() {
 		// TODO Auto-generated method stub
 		return userDao.findAllUserInfo();
+	}
+	/* 
+	 * @see org.mn.service.IUserService#modifyPasswd(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public boolean modifyPasswd(String user_id, String newPasswd) {
+		// TODO Auto-generated method stub
+		if(userDao.modifyPasswd(user_id, newPasswd) > 0) {
+			return true;
+		}
+		return false;
+	}
+	/* 
+	 * @see org.mn.service.IUserService#registUser(org.mn.bean.User)
+	 */
+	@Override
+	public boolean registUser(User user) {
+		// TODO Auto-generated method stub
+		// 取得一个随机id作为用户的id
+		String user_id = StringUtil.getRoundId();
+		user.setUser_id(user_id);
+		if(userDao.registUser(user) > 0) {
+			return true;
+		}
+		return false;
 	}
 
 }

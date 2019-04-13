@@ -24,18 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
      <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-   <!-- 刷新模态框的JS -->
-   <script>
-    function add_info()
-	    {
-	        var form = document.getElementById('updateform');
-	        form.submit();
-	        $("#myModal").on("hidden.bs.modal", function() {
-	            $(this).removeData("bs.modal");
-	        });
-	 
-	    }
-	</script>
 </head>
 <body>
     <div id="wrapper">
@@ -57,12 +45,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user fa-fw"></i>用户信息</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>用户信息</a>
                         </li>
-                        <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user fa-fw"></i>修改密码</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 修改密码</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login_out.jsp" onclick = ""><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -70,62 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <!-- /.dropdown -->
             </ul>
         </nav>
-        <!-- 模态框，用于查看用户信息，弹出层 -->
-        <div class="modal fade" id="myInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        <h4 class="modal-title" id="myModalLabel">我的信息</h4>
-			      </div>
-			      <div class="modal-body">
-			      		<label for="loginname" class="control-label">姓名: ${sessionScope.sUser.user_name}</label><br>
-			      		<label for="loginname" class="control-label">性别: <c:if test="${sessionScope.sUser.user_sex==0}">男</c:if>
-                                            <c:if test="${sessionScope.sUser.user_sex==1}">女</c:if></label><br>
-			      		<label for="loginname" class="control-label">电话: ${sessionScope.sUser.user_phone}</label><br>
-			      		
-			      </div>
-			      <div class="text-right">
-                        <button type="button" class="btn btn-default right" data-dismiss="modal">关闭</button>
-                   </div>
-		    </div>
-		  </div>
-		</div>
-        
-        
-        <!-- 模态框，用于修改密码，弹出层 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        <h4 class="modal-title" id="myModalLabel">修改密码</h4>
-			      </div>
-			      <div class="modal-body">
-			                <form id="updateform" action="user/modifyPasswd" >
-			                    <div class="form-group">
-			                        <label for="loginname" class="control-label">原密码:</label>
-			                        <input type="text" class="form-control" id="oldPasswd" name="oldPasswd">
-			                    </div>
-			                    <div class="form-group">
-			                        <label for="email" class="control-label">新密码:</label>
-			                        <input type="text" class="form-control" id="newPasswd" name="newPasswd">
-			                    </div>
-			                    <div class="form-group">
-			                        <label for="phone" class="control-label">重复新密码:</label>
-			                        <input type="text" class="form-control" id="newPasswd1" name="newPasswd1">
-			                    </div>
-			                    <div class="text-right">
-			                        <span id="returnMessage" class="glyphicon"> </span>
-			                        <button id="submitBtn" type="button" class="btn btn-primary" onclick="add_info()" >提交</button>
-			                        <button type="button" class="btn btn-default right" data-dismiss="modal">关闭</button>
-			                    </div>
-			                </form>
-			      </div>
-		    </div>
-		  </div>
-		</div>
-        
         <!--/. NAV TOP  -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <nav class="navbar-default navbar-side" role="navigation">
@@ -154,9 +86,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             	用户管理
+                             	角色管理
                            	<div class="btn-group">
-							  <button type="button" class="btn btn-success">新增用户</button>
+							  <button type="button" class="btn btn-success">新增角色</button>
 							</div>
                         </div>
                         <div class="panel-body">
