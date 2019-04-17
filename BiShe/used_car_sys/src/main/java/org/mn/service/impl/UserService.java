@@ -10,6 +10,7 @@ import org.mn.bean.Permissions;
 import org.mn.bean.User;
 import org.mn.dao.UserDao;
 import org.mn.service.IUserService;
+import org.mn.util.ConstantUtil;
 import org.mn.util.MD5Utils;
 import org.mn.util.StringUtil;
 import org.springframework.stereotype.Service;
@@ -82,10 +83,24 @@ public class UserService implements IUserService {
 		// 取得一个随机id作为用户的id
 		String user_id = StringUtil.getRoundId();
 		user.setUser_id(user_id);
+		// 如果是通过后端管理员添加用户，则不会有密码，密码设为默认值(也需要加密)，如果是用户注册，则需要将密码加密
+		if(user.getUser_passwd() != null && user.getUser_passwd().equals("")) {
+			user.setUser_passwd(MD5Utils.getPwd(user.getUser_passwd()));
+		} else {
+			user.setUser_passwd(MD5Utils.getPwd(ConstantUtil.UserPassWord));
+		}
 		if(userDao.registUser(user) > 0) {
 			return true;
 		}
 		return false;
+	}
+	/* 
+	 * @see org.mn.service.IUserService#findDetailUser(java.lang.String)
+	 */
+	@Override
+	public User findDetailUser(String user_id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

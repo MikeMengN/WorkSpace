@@ -11,4 +11,6 @@ public class ConstantUtil {
 	public static final int PageSize = 10;
 	// 随机字符串
 	public static final String Str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	// 新增用户默认密码
+	public static final String UserPassWord = "123456";
 }

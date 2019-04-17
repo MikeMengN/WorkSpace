@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user fa-fw"></i>用户信息</a>
+                        <li><a href="#" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user fa-fw"></i>我的信息</a>
                         </li>
                         <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user fa-fw"></i>修改密码</a>
                         </li>

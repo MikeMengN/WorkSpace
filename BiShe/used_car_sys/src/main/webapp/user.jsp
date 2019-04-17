@@ -34,7 +34,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            $(this).removeData("bs.modal");
 	        });
 	 
-	    }
+	}
+    function add_userinfo()
+	    {
+	        var form = document.getElementById('userform');
+	        form.submit();
+	        $("#myModalUser").on("hidden.bs.modal", function() {
+	            $(this).removeData("bs.modal");
+	        });
+	 
+	}
 	</script>
 </head>
 <body>
@@ -57,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user fa-fw"></i>用户信息</a>
+                        <li><a href="#" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user fa-fw"></i>我的信息</a>
                         </li>
                         <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user fa-fw"></i>修改密码</a>
                         </li>
@@ -70,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <!-- /.dropdown -->
             </ul>
         </nav>
-        <!-- 模态框，用于查看用户信息，弹出层 -->
+        <!-- 模态框，用于查看当前登录用户信息，弹出层 -->
         <div class="modal fade" id="myInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -126,6 +135,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
         
+        <!-- 模态框，用于添加用户 -->
+        <div class="modal fade" id="myModalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			        <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+			      </div>
+			      <div class="modal-body">
+			                <form id="userform" action="user/registUser" >
+			                    <div class="form-group">
+			                        <label for="loginname" class="control-label">用户名:</label>
+			                        <input type="text" class="form-control" id="user_name" name="user_name">
+			                    </div>
+			                    <div class="form-group">
+			                        <label for="sex" class="control-label">用户性别:</label>
+			                            <label class="radio-inline">
+									        <input type="radio" name="user_sex" id="user_sex" value="0" checked>男
+									    </label>
+									    <label class="radio-inline">
+									        <input type="radio" name="user_sex" id="user_sex"  value="1">女
+									    </label>
+			                    </div>
+			                    <div class="form-group">
+			                        <label for="user_phone" class="control-label">用户电话:</label>
+			                        <input type="text" class="form-control" id="user_phone" name="user_phone">
+			                    </div>
+			                    <div class="text-right">
+			                        <span id="returnMessage" class="glyphicon"> </span>
+			                        <button id="submitBtn" type="button" class="btn btn-primary" onclick="add_userinfo()" >提交</button>
+			                        <button type="button" class="btn btn-default right" data-dismiss="modal">取消</button>
+			                    </div>
+			                </form>
+			      </div>
+		    </div>
+		  </div>
+		</div>
+		
+        <!-- 模态框，用于查看用户信息 -->
+        <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			        <h4 class="modal-title" id="myModalLabel">我的信息</h4>
+			      </div>
+			      <div class="modal-body">
+			      		<label for="loginname" class="control-label">姓名: ${sessionScope.sUser.user_name}</label><br>
+			      		<label for="loginname" class="control-label">性别: <c:if test="${sessionScope.sUser.user_sex==0}">男</c:if>
+                                            <c:if test="${sessionScope.sUser.user_sex==1}">女</c:if></label><br>
+			      		<label for="loginname" class="control-label">电话: ${sessionScope.sUser.user_phone}</label><br>
+			      		
+			      </div>
+			      <div class="text-right">
+                        <button type="button" class="btn btn-default right" data-dismiss="modal">关闭</button>
+                   </div>
+		    </div>
+		  </div>
+		</div>
+        
+        
         <!--/. NAV TOP  -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <nav class="navbar-default navbar-side" role="navigation">
@@ -156,7 +226,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="panel-heading">
                              	用户管理
                            	<div class="btn-group">
-							  <button type="button" class="btn btn-success">新增用户</button>
+							  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalUser">新增用户</button>
 							</div>
                         </div>
                         <div class="panel-body">
@@ -170,7 +240,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <th>用户电话</th>
                                             <th>操作</th>
                                         </tr>
-                                    </thead>
+                                     </thead>
                                     <tbody>
                                     <c:forEach items="${requestScope.lisu}" var = "lisu">
                                         <tr class="odd gradeX">
@@ -183,7 +253,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <td class="center">${lisu.user_phone}</td>
                                             <td>
                                             <div>
-                                            <button type="button" class="btn btn-info">查看</button>
+                                            <a class="btn btn-info" href = "" data-toggle="modal" data-target="#userInfo">查看</a>
                                             <button type="button" class="btn btn-warning">修改</button>
 						  					<button type="button" class="btn btn-danger">删除</button>
 						  					</div>
@@ -202,6 +272,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							    <li class="page-item"><a class="page-link" href="user/findAllUserInfo?page=${requestScope.nowPage+1}">下一页</a></li>
 							  </ul>
 							</div>
+							
                             </div>
                             
                         </div>

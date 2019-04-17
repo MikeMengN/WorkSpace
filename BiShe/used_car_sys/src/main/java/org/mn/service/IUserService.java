@@ -63,4 +63,14 @@ public interface IUserService {
 	 * @throws
 	 */
 	boolean registUser(User user);
+	
+	/**
+	 * @Title: findDetailUser   
+	 * @Description: 查看用户详细信息  
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
+	 */
+	User findDetailUser(String user_id);
 }

@@ -135,10 +135,28 @@ public class UserController {
 	 * @return: String      
 	 * @throws
 	 */
+	@RequestMapping(value = "/registUser")
 	public String registUser(HttpServletRequest request, HttpServletResponse response, User user) {
+		boolean bool = userService.registUser(user);
+		if(bool == true) {
+			return "user/findAllUserInfo?arg=0";
+		}
+		return "error.jsp";
+	}
+	
+	/**
+	 * @Title: findDetailUser   
+	 * @Description: c查询用户详细信息   
+	 * @param: @param request
+	 * @param: @param response
+	 * @param: @param user_id
+	 * @return: String      
+	 * @throws
+	 */
+	@RequestMapping(value = "/findDetailUser")
+	public String findDetailUser(HttpServletRequest request, HttpServletResponse response, String user_id) {
 		
-		
-		return "";
+		return "error.jsp";
 	}
 	
 }

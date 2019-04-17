@@ -66,4 +66,14 @@ public interface UserDao {
 	 * @throws
 	 */
 	public int registUser(@Param("user") User user);
+	
+	/**
+	 * @Title: findDetailUser   
+	 * @Description: 查询用户详细信息，数据访问层   
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
+	 */
+	public User findDetailUser(String user_id);
 }
