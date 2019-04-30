@@ -19,9 +19,13 @@
 	<!-- 设置session过期直接跳转登录页面 -->
     <mvc:interceptors>
 	    <mvc:interceptor>
+	    	<!-- 拦截所有请求，必须写在最前面 -->
 	        <mvc:mapping path="/**"/>
+	        <!-- 以下是不拦截的请求 -->
 	        <mvc:exclude-mapping path="/user/login"/>    <!-- 不拦截登录请求 -->
 	        <mvc:exclude-mapping path="*.jsp"/>
+	        <mvc:exclude-mapping path="/index.jsp"/>
+	        <mvc:exclude-mapping path="/public/*"/>
 	        <mvc:exclude-mapping path="*.html"/>
 	        <mvc:exclude-mapping path="*.js"/>
 	        <mvc:exclude-mapping path="*.css"/>
