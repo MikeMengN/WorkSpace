@@ -135,18 +135,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
         
-        <!-- 模态框，用于添加角色 -->
+        <!-- 模态框，用于添加品牌-->
         <div class="modal fade" id="myModalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        <h4 class="modal-title" id="myModalLabel">添加角色</h4>
+			        <h4 class="modal-title" id="myModalLabel">添加品牌</h4>
 			      </div>
 			      <div class="modal-body">
 			                <form id="roleform" action="role/addRole" >
 			                    <div class="form-group">
-			                        <label for="loginname" class="control-label">角色名:</label>
+			                        <label for="loginname" class="control-label">品牌名:</label>
+			                        <input type="text" class="form-control" id="user_name" name="user_name">
+			                    </div>
+			                    <div class="form-group">
+			                        <label for="loginname" class="control-label">所属国家:</label>
 			                        <input type="text" class="form-control" id="user_name" name="user_name">
 			                    </div>
 			                    <div class="text-right">
@@ -209,9 +213,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             	角色管理
+                             	车辆车系管理
                            	<div class="btn-group">
-							  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalUser">新增角色</button>
+							  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalUser">新增车系</button>
 							</div>
                         </div>
                         <div class="panel-body">
@@ -219,16 +223,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>角色编号</th>
-                                            <th>角色名</th>
+                                            <th>车系编号</th>
+                                            <th>车系名称</th>
+                                            <th>车系所属品牌</th>
                                             <th>操作</th>
                                         </tr>
                                      </thead>
                                     <tbody>
-                                    <c:forEach items="${requestScope.lisr}" var = "lisr">
+                                    <c:forEach items="${requestScope.lisvt}" var = "lisvt">
                                         <tr class="odd gradeX">
-                                            <td>${lisr.role_id}</td>
-                                            <td>${lisr.role_name}</td>
+                                            <td>${lisvt.vt_id}</td>
+                                            <td>${lisvt.vt_name}</td>
+                                            <td>${lisvt.vb_name}</td>
                                             <td>
                                             <div>
                                             <a class="btn btn-info" href = "" data-toggle="modal" data-target="#roleInfo">查看</a>
@@ -242,12 +248,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </table>
                             <div class="container">
 							  <ul class="pagination pagination-sm">
-							    <li class="page-item"><a class="page-link" href="role/findAllRoleInfo?page=${requestScope.nowPage-1}">上一页</a></li>
+							    <li class="page-item"><a class="page-link" href="vtrain/findAllVTrainInfo?page=${requestScope.nowPage-1}">上一页</a></li>
 							    <li class="page-item disabled"><a class="page-link"><c:if test="${requestScope.nowPage==1}">首页</c:if>
 							    <c:if test="${requestScope.nowPage!=1}">第${requestScope.nowPage}页</c:if></a></li>
 							    <li class="page-item disabled"><a class="page-link">...</a></li>
 							    <li class="page-item disabled"><a class="page-link">共${requestScope.maxPage}页</a></li>
-							    <li class="page-item"><a class="page-link" href="role/findAllRoleInfo?page=${requestScope.nowPage+1}">下一页</a></li>
+							    <li class="page-item"><a class="page-link" href="vtrain/findAllVTrainInfo?page=${requestScope.nowPage+1}">下一页</a></li>
 							  </ul>
 							</div>
 							

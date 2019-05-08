@@ -18,4 +18,13 @@ public interface IRoleService {
 	 * @throws
 	 */
 	List<Role> findAllRoleInfo(); 
+	
+	/**
+	 * @Title: findAllRolePageInfo   
+	 * @Description: 分页查询角色信息  
+	 * @param: @return      
+	 * @return: List<Role>      
+	 * @throws
+	 */
+	List<Role> findAllRolePageInfo(Integer currIndex, Integer pageSize);
 }

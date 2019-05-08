@@ -6,4 +6,9 @@
     <select id="findAllRoleInfo" resultType="org.mn.bean.Role">
         select role_id, role_name from role    
 	</select>
+	
+	<!-- 查询所有用户信息(分页) -->
+    <select id="findAllRolePageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.Role">
+        select role_id, role_name from role limit ${currIndex}, ${pageSize}   
+	</select>
 </mapper>

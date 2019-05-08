@@ -3,7 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mn.dao.PermissionDao">
 	<!-- 查询所有用户信息 -->
-    <select id="findAllPermissionInfo" resultType="org.mn.bean.Permissions">
-        select role_id, role_name from role    
+    <select id="findAllPerInfo" resultType="org.mn.bean.Permissions">
+        select per_id, per_name, jsp_name from permissions    
+	</select>
+	
+	<!-- 查询所有用户信息(分页) -->
+    <select id="findAllPerPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.Permissions">
+        select per_id, per_name, jsp_name from permissions limit ${currIndex}, ${pageSize}   
 	</select>
 </mapper>

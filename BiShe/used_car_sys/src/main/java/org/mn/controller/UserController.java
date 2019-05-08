@@ -39,7 +39,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login")
 	public String login(HttpServletRequest request, HttpServletResponse response, User user) {
-		
+		// 用户验证登录
 		User sUser = userService.login(user);
 		if(sUser != null) {
 			HttpSession session = request.getSession();

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mn.dao.VBrandDao">
+	<!-- 查询所有用户信息 -->
+    <select id="findAllVBrandInfo" resultType="org.mn.bean.VehicleBrand">
+        select vb_id, vb_name, country from vehicle_brand    
+	</select>
+	
+	<!-- 查询所有用户信息(分页) -->
+    <select id="findAllVBrandPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.VehicleBrand">
+        select vb_id, vb_name, country from vehicle_brand limit ${currIndex}, ${pageSize}   
+	</select>
+</mapper>

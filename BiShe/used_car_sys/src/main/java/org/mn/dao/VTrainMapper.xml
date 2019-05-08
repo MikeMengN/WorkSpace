@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mn.dao.VTrainDao">
+	<!-- 查询所有用户信息 -->
+    <select id="findAllVTrainInfo" resultType="org.mn.bean.VehicleTrain">
+        select a.vt_id, a.vt_name, b.vb_name from vehicle_train a left join vehicle_brand b on a.vb_id = b.vb_id    
+	</select>
+	
+	<!-- 查询所有用户信息(分页) -->
+    <select id="findAllVTrainPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.VehicleTrain">
+        select a.vt_id, a.vt_name, b.vb_name from vehicle_train a left join vehicle_brand b on a.vb_id = b.vb_id limit ${currIndex}, ${pageSize}   
+	</select>
+</mapper>

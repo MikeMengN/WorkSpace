@@ -11,6 +11,8 @@ public class LicensePlateLocation {
 	private String lpl_id;
 	// 城市名称
 	private String city_name;
+	// 创建时间
+	private String create_time;
 	/**
 	 * 
 	 */
@@ -21,11 +23,13 @@ public class LicensePlateLocation {
 	/**
 	 * @param lpl_id
 	 * @param city_name
+	 * @param create_time
 	 */
-	public LicensePlateLocation(String lpl_id, String city_name) {
+	public LicensePlateLocation(String lpl_id, String city_name, String create_time) {
 		super();
 		this.lpl_id = lpl_id;
 		this.city_name = city_name;
+		this.create_time = create_time;
 	}
 	/**
 	 * @return the lpl_id
@@ -51,5 +55,18 @@ public class LicensePlateLocation {
 	public void setCity_name(String city_name) {
 		this.city_name = city_name;
 	}
+	/**
+	 * @return the create_time
+	 */
+	public String getCreate_time() {
+		return create_time;
+	}
+	/**
+	 * @param create_time the create_time to set
+	 */
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
+	}
+	
 	
 }

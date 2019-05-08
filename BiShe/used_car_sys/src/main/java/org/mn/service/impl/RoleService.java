@@ -27,5 +27,13 @@ public class RoleService implements IRoleService {
 		// TODO Auto-generated method stub
 		return roleDao.findAllRoleInfo();
 	}
+	/* 
+	 * @see org.mn.service.IRoleService#findAllRolePageInfo(java.lang.Integer, java.lang.Integer)
+	 */
+	@Override
+	public List<Role> findAllRolePageInfo(Integer currIndex, Integer pageSize) {
+		// TODO Auto-generated method stub
+		return roleDao.findAllRolePageInfo(currIndex, pageSize);
+	}
 	
 }
