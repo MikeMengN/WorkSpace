@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mn.dao.IntSellCarDao">
+	<insert id = "sellCarToCompany" parameterType = "org.mn.bean.IntentionSellCar">
+		insert into intention_sell_car(isc_id, user_id, create_time) 
+		values(
+			#{sellCar.isc_id},
+			#{sellCar.user_id},
+			#{sellCar.create_time}
+		)
+	</insert>
+</mapper>

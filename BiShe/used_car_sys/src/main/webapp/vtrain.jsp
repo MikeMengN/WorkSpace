@@ -44,6 +44,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        });
 	 
 	}
+    $(function() {
+    	$("#per").click(function() {
+    		 $("#per").addClass("active-menu");
+    	})
+    })
 	</script>
 </head>
 <body>
@@ -193,12 +198,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul class="nav" id="main-menu">
 					<c:forEach items="${sessionScope.lisper}" var = "item">
 						<li>
-                        	<a class="active-menu" href="${item.jsp_name}"><i class="fa fa-dashboard"></i>${item.per_name}</a>
+                        	<a href="${item.jsp_name}" id = "per"><i class="fa fa-dashboard"></i>${item.per_name}</a>
                     	</li>
 					</c:forEach>
-                   
                 </ul>
-
             </div>
 
         </nav>

@@ -1,5 +1,7 @@
 package org.mn.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**  
 * @Title: UsedCarInfo  
 * @Description: 二手车信息表  
@@ -34,7 +36,7 @@ public class UsedCarInfo {
 	// 燃油类型
 	private Integer fuel_type;
 	// 颜色
-	private Integer color;
+	private String color;
 	// 车辆所在地
 	private String lpl_id;
 	// 驱动类型
@@ -51,6 +53,10 @@ public class UsedCarInfo {
 	private String picture3;
 	// 二手车质量检测信息
 	private String qi_id;
+	// 文件上传
+//	private MultipartFile file;
+	// 创建时间
+	private String create_time;
 	/**
 	 * 
 	 */
@@ -84,9 +90,9 @@ public class UsedCarInfo {
 	 */
 	public UsedCarInfo(String uci_id, String vb_id, String vt_id, Double ex_factory_price, Double present_price,
 			Integer vehicle_age, Integer transmission, Integer vehicle_model, Integer road_hual, Float displacement,
-			Integer effluent_standard, Integer seating, Integer fuel_type, Integer color, String lpl_id,
+			Integer effluent_standard, Integer seating, Integer fuel_type, String color, String lpl_id,
 			Integer driving_type, String country, Integer highlight_the_configuration, String picture1, String picture2,
-			String picture3, String qi_id) {
+			String picture3, String qi_id, String create_time) {
 		super();
 		this.uci_id = uci_id;
 		this.vb_id = vb_id;
@@ -110,6 +116,7 @@ public class UsedCarInfo {
 		this.picture2 = picture2;
 		this.picture3 = picture3;
 		this.qi_id = qi_id;
+		this.create_time = create_time;
 	}
 	/**
 	 * @return the uci_id
@@ -270,13 +277,13 @@ public class UsedCarInfo {
 	/**
 	 * @return the color
 	 */
-	public Integer getColor() {
+	public String getColor() {
 		return color;
 	}
 	/**
 	 * @param color the color to set
 	 */
-	public void setColor(Integer color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 	/**
@@ -375,6 +382,31 @@ public class UsedCarInfo {
 	public void setQi_id(String qi_id) {
 		this.qi_id = qi_id;
 	}
+	/**
+	 * @return the create_time
+	 */
+	public String getCreate_time() {
+		return create_time;
+	}
+	/**
+	 * @param create_time the create_time to set
+	 */
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
+	}
 	
+//	/**
+//	 * @return the file
+//	 */
+//	public MultipartFile getFile() {
+//		return file;
+//	}
+//	/**
+//	 * @param file the file to set
+//	 */
+//	public void setFile(MultipartFile file) {
+//		this.file = file;
+//	}
+//	
 	
 }

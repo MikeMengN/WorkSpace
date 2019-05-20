@@ -11,6 +11,9 @@ public class IntentionSellCar {
 	private String isc_id;
 	// 用户id
 	private String user_id;
+	// 创建时间
+	private String create_time;
+	
 	/**
 	 * 
 	 */
@@ -22,10 +25,11 @@ public class IntentionSellCar {
 	 * @param isc_id
 	 * @param user_id
 	 */
-	public IntentionSellCar(String isc_id, String user_id) {
+	public IntentionSellCar(String isc_id, String user_id, String create_time) {
 		super();
 		this.isc_id = isc_id;
 		this.user_id = user_id;
+		this.create_time = create_time;
 	}
 	/**
 	 * @return the isc_id
@@ -51,6 +55,19 @@ public class IntentionSellCar {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+	/**
+	 * @return the create_time
+	 */
+	public String getCreate_time() {
+		return create_time;
+	}
+	/**
+	 * @param create_time the create_time to set
+	 */
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
+	}
+	
 	
 	
 }

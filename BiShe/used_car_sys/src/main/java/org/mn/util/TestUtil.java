@@ -22,6 +22,7 @@ public class TestUtil {
 //		System.out.println(pwd);
 		// 测试取得id的方法
 		System.out.println(StringUtil.getRoundId());
+		System.out.println(StringUtil.getFilename());
 	}
 
 }

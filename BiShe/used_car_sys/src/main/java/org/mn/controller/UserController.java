@@ -55,6 +55,29 @@ public class UserController {
 	}
 	
 	/**
+	 * @Title: login   
+	 * @Description: 前台用户登录验证
+	 * @param: @param request
+	 * @param: @param response
+	 * @param: @param user
+	 * @return: String      
+	 * @throws
+	 */
+	@RequestMapping(value = "/loginWeb")
+	public String loginWeb(HttpServletRequest request, HttpServletResponse response, User user) {
+		// 用户验证登录
+		User webUser = userService.login(user);
+		if(webUser != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("webUser", webUser);
+			return "/web_user/index.jsp";
+		} else {
+			return "redirect:/web_user/index.jsp";
+		}
+		
+	}
+	
+	/**
 	 * @Title: findAllUserInfo   
 	 * @Description: 查询所有用户信息   
 	 * @param: @param request
@@ -145,6 +168,25 @@ public class UserController {
 	}
 	
 	/**
+	 * @Title: registUser   
+	 * @Description: 前端用户注册方法   
+	 * @param: @param request
+	 * @param: @param response
+	 * @param: @param user
+	 * @return: String      
+	 * @throws
+	 */
+	@RequestMapping(value = "/registWebUser")
+	public String registWebUser(HttpServletRequest request, HttpServletResponse response, User user) {
+		user.setUser_resource("0");
+		boolean bool = userService.registUser(user);
+		if(bool == true) {
+			return "/web_user/login.jsp";
+		}
+		return "error.jsp";
+	}
+	
+	/**
 	 * @Title: findDetailUser   
 	 * @Description: c查询用户详细信息   
 	 * @param: @param request
@@ -157,6 +199,18 @@ public class UserController {
 	public String findDetailUser(HttpServletRequest request, HttpServletResponse response, String user_id) {
 		
 		return "error.jsp";
+	}
+	
+	@RequestMapping(value = "/loginWebService")
+	public String loginWebService(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "/web_user/login.jsp";
+	}
+	
+	@RequestMapping(value = "/registWebService")
+	public String registWebService(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "/web_user/regist.jsp";
 	}
 	
 }

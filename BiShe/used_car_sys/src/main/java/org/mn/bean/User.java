@@ -15,8 +15,12 @@ public class User {
 	private Integer user_sex;
 	// 用户密码
 	private String user_passwd;
+	// 用户来源
+	private String user_resource;
 	// 用户电话号码
 	private String user_phone;
+	// 创建时间
+	private String create_time;
 	/**
 	 * 
 	 */
@@ -29,15 +33,19 @@ public class User {
 	 * @param user_name
 	 * @param user_sex
 	 * @param user_passwd
+	 * @param user_resource
 	 * @param user_phone
 	 */
-	public User(String user_id, String user_name, Integer user_sex, String user_passwd, String user_phone) {
+	public User(String user_id, String user_name, Integer user_sex, String user_passwd, String user_resource,
+			String user_phone, String create_time) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
 		this.user_sex = user_sex;
 		this.user_passwd = user_passwd;
+		this.user_resource = user_resource;
 		this.user_phone = user_phone;
+		this.create_time = create_time;
 	}
 	/**
 	 * @return the user_id
@@ -88,6 +96,18 @@ public class User {
 		this.user_passwd = user_passwd;
 	}
 	/**
+	 * @return the user_resource
+	 */
+	public String getUser_resource() {
+		return user_resource;
+	}
+	/**
+	 * @param user_resource the user_resource to set
+	 */
+	public void setUser_resource(String user_resource) {
+		this.user_resource = user_resource;
+	}
+	/**
 	 * @return the user_phone
 	 */
 	public String getUser_phone() {
@@ -99,7 +119,20 @@ public class User {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
+	/**
+	 * @return the create_time
+	 */
+	public String getCreate_time() {
+		return create_time;
+	}
+	/**
+	 * @param create_time the create_time to set
+	 */
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
+	}
 	
+
 	
 }
 

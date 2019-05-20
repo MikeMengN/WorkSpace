@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mn.dao.IntBuyCarDao">
+	<insert id = "buyCarInfoFromCompany" parameterType = "org.mn.bean.IntentionBuyCar">
+		insert into intention_buy_car(ibc_id, user_id, uci_id ,create_time) 
+		values(
+			#{buyCar.ibc_id},
+			#{buyCar.user_id},
+			#{buyCar.uci_id},
+			#{buyCar.create_time}
+		)
+	</insert>
+</mapper>

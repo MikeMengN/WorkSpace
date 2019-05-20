@@ -1,5 +1,7 @@
 package org.mn.service;
 
+import org.mn.bean.IntentionSellCar;
+
 /**  
 * @Title: IIntSellCarService  
 * @Description: 意向卖车者信息业务接口 
@@ -8,4 +10,12 @@ package org.mn.service;
 */
 public interface IIntSellCarService {
 
+	/**
+	 * @Title: sellCarToCompany   
+	 * @Description:意向卖车者信息收集  
+	 * @param: @param sellCar
+	 * @return: int      
+	 * @throws
+	 */
+	int sellCarToCompany(IntentionSellCar sellCar);
 }

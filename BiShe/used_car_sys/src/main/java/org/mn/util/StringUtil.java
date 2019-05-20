@@ -33,4 +33,20 @@ public class StringUtil {
 	    String str = sim.format(date) + sb.toString();
 		return str;
 	}
+	
+	/**
+	 * @Title: getFilename   
+	 * @Description: 获取文件名称   
+	 * @return: String      
+	 * @throws
+	 */
+	public static String getFilename() {
+		// 取得当前的时间，并转换为字符串
+		Date date = new Date();
+		// 取得到毫秒的时间
+		SimpleDateFormat sim = new SimpleDateFormat("yyyyMMddhhmmssSSS");
+		// 将当前时间戳与随机得到的字符串组合成为一个新的字符串
+		String str = sim.format(date);
+		return str;
+	}
 }

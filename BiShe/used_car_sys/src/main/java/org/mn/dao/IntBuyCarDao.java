@@ -28,4 +28,13 @@ public interface IntBuyCarDao {
 	 * @throws
 	 */
 	List<IntentionBuyCar> findAllIbcPageInfo(@Param("currIndex") Integer currIndex, @Param("pageSize") Integer pageSize);
+
+	/**
+	 * @Title: buyCarInfoFromCompany   
+	 * @Description: 意向卖车者信息收集   
+	 * @param: @param buyCar
+	 * @return: int      
+	 * @throws
+	 */
+	int buyCarInfoFromCompany(@Param("buyCar") IntentionBuyCar buyCar);
 }

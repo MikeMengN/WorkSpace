@@ -9,6 +9,8 @@ package org.mn.util;
 public class ConstantUtil {
 	// 每页记录数的常量类
 	public static final int PageSize = 10;
+	// 用户端每页记录数的常量类
+	public static final int PageSizeWeb = 6;
 	// 随机字符串
 	public static final String Str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	// 新增用户默认密码

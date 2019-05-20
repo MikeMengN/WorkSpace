@@ -11,6 +11,7 @@ import org.mn.bean.User;
 import org.mn.dao.UserDao;
 import org.mn.service.IUserService;
 import org.mn.util.ConstantUtil;
+import org.mn.util.DateUtil;
 import org.mn.util.MD5Utils;
 import org.mn.util.StringUtil;
 import org.springframework.stereotype.Service;
@@ -83,6 +84,8 @@ public class UserService implements IUserService {
 		// 取得一个随机id作为用户的id
 		String user_id = StringUtil.getRoundId();
 		user.setUser_id(user_id);
+		// 设置创建时间
+		user.setCreate_time(DateUtil.getDate());
 		// 如果是通过后端管理员添加用户，则不会有密码，密码设为默认值(也需要加密)，如果是用户注册，则需要将密码加密
 		if(user.getUser_passwd() != null && user.getUser_passwd().equals("")) {
 			user.setUser_passwd(MD5Utils.getPwd(user.getUser_passwd()));

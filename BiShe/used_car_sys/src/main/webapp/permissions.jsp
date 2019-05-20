@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
-   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
      <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
    <!-- 刷新模态框的JS -->
@@ -194,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul class="nav" id="main-menu">
 					<c:forEach items="${sessionScope.lisper}" var = "item">
 						<li>
-                        	<a class="active-menu" href="${item.jsp_name}"><i class="fa fa-dashboard"></i>${item.per_name}</a>
+                        	<a href="${item.jsp_name}"><i class="fa fa-dashboard"></i>${item.per_name}</a>
                     	</li>
 					</c:forEach>
                    

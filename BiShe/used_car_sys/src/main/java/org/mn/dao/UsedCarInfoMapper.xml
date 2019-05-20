@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mn.dao.UsedCarInfoDao">
+	<!-- 查询所有二手车信息 -->
+    <select id="findAllUsedCarInfo" resultType="org.mn.bean.UsedCarInfo">
+        select uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
+			transmission, vehicle_model, road_hual, displacement, effluent_standard,
+			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
+			picture1, picture2, picture3, qi_id, create_time
+		from used_car_infermation order by create_time  
+	</select>
+	
+	<!-- 查询所有二手车信息(分页) -->
+    <select id="findAllUsedCarPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.UsedCarInfo">
+        select uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
+			transmission, vehicle_model, road_hual, displacement, effluent_standard,
+			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
+			picture1, picture2, picture3, qi_id, create_time
+		from used_car_infermation order by create_time limit ${currIndex}, ${pageSize}   
+	</select>
+	
+	<!-- 根据查询二手车信息 -->
+    <select id="findUsedCarInfoByUci_Id" parameterType="java.lang.String" resultType="org.mn.bean.UsedCarInfo">
+        select b.vb_name as vb_id, c.vt_name as vt_id, a.present_price, a.vehicle_age,
+			a.transmission, a.vehicle_model, a.road_hual, a.displacement, a.effluent_standard,
+			a.seating, a.fuel_type, a.color, d.city_name as lpl_id, a.driving_type, b.country as country , 
+			a.highlight_the_configuration, a.create_time, a.picture1
+			from 
+			used_car_infermation a LEFT join vehicle_brand b on a.vb_id = b.vb_id 
+			LEFT join vehicle_train c on a.vt_id = c.vt_id LEFT join license_plate_location d on a.lpl_id = d.lpl_id where a.uci_id = #{uci_id}
+	</select>
+	
+	<insert id = "addUsedCarInfo" parameterType = "org.mn.bean.UsedCarInfo">
+		insert into used_car_infermation (
+			uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
+			transmission, vehicle_model, road_hual, displacement, effluent_standard,
+			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
+			picture1, picture2, picture3, qi_id, create_time
+		) 
+		values(
+			#{usedCar.uci_id}, 
+			#{usedCar.vb_id}, 
+			#{usedCar.vt_id}, 
+			#{usedCar.ex_factory_price}, 
+			#{usedCar.present_price}, 
+			#{usedCar.vehicle_age},
+			#{usedCar.transmission}, 
+			#{usedCar.vehicle_model}, 
+			#{usedCar.road_hual}, 
+			#{usedCar.displacement}, 
+			#{usedCar.effluent_standard},
+			#{usedCar.seating}, 
+			#{usedCar.fuel_type}, 
+			#{usedCar.color}, 
+			#{usedCar.lpl_id}, 
+			#{usedCar.driving_type}, 
+			#{usedCar.country}, 
+			#{usedCar.highlight_the_configuration},
+			#{usedCar.picture1}, 
+			#{usedCar.picture2}, 
+			#{usedCar.picture3}, 
+			#{usedCar.qi_id}, 
+			#{usedCar.create_time}
+		)
+	</insert>
+	
+	<update id = "updateUsedCarInfo" parameterType = "org.mn.bean.UsedCarInfo">
+		update used_car_infermation
+		<set>
+			<if test = "vb_id != null">vb_id = #{usedCar.vb_id}</if>
+			<if test = "vt_id != null">vt_id = #{usedCar.vt_id}</if>
+			<if test = "ex_factory_price != null">ex_factory_price = {usedCar.ex_factory_price}</if>
+			<if test = "present_price != null">present_price = #{usedCar.present_price}</if>
+			<if test = "vehicle_age != null">vehicle_age = #{usedCar.vehicle_age}</if>
+			<if test = "transmission != null">transmission = #{usedCar.transmission}</if>
+			<if test = "vehicle_model != null">vehicle_model = #{usedCar.vehicle_model}</if>
+			<if test = "road_hual != null">road_hual = #{usedCar.road_hual}</if>
+			<if test = "displacement != null">displacement = #{usedCar.displacement}</if>
+			<if test = "effluent_standard != null">effluent_standard = #{usedCar.effluent_standard}</if>
+			<if test = "seating != null">seating = #{usedCar.seating}</if>
+			<if test = "fuel_type != null">fuel_type = #{usedCar.fuel_type}</if>
+			<if test = "color != null">color = #{usedCar.color}</if>
+			<if test = "lpl_id != null">lpl_id = #{usedCar.lpl_id}</if>
+			<if test = "driving_type != null">driving_type = #{usedCar.driving_type}</if>
+			<if test = "country != null">country = #{usedCar.country}</if>
+			<if test = "highlight_the_configuration != null">highlight_the_configuration = #{usedCar.highlight_the_configuration}</if>
+			<if test = "picture1 != null">picture1 = #{usedCar.picture1}</if>
+			<if test = "picture2 != null">picture2 = #{usedCar.picture2}</if>
+			<if test = "picture3 != null">picture3 = #{usedCar.picture3}</if>
+			<if test = "create_time != null">create_time = #{usedCar.create_time}</if>
+		</set>
+		where uci_id = #{usedCar.uci_id}
+	</update>
+		
+	<delete id = "deleteUsedCarInfo" parameterType = "java.lang.String">
+		delete * from used_car_infermation where uci_id = ${uci_id}
+	</delete>
+	
+	<!-- 查询所有二手车信息(分页)前端查询 -->
+    <select id="findUsedCarInfoToWeb" parameterType="java.lang.Integer" resultType="org.mn.bean.UsedCarInfo">
+        select uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
+			transmission, vehicle_model, road_hual, displacement, effluent_standard,
+			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
+			picture1, picture2, picture3, qi_id, create_time
+		from used_car_infermation order by create_time limit ${currIndex}, ${pageSize}   
+	</select>
+	
+	<!-- 查询所有二手车信息(分页)前端首页查询 -->
+    <select id="findUsedCarInfoToWebIndex" parameterType="java.lang.Integer" resultType="org.mn.bean.UsedCarInfo">
+        select uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
+			transmission, vehicle_model, road_hual, displacement, effluent_standard,
+			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
+			picture1, picture2, picture3, qi_id, create_time
+		from used_car_infermation order by create_time limit 3  
+	</select>
+</mapper>
