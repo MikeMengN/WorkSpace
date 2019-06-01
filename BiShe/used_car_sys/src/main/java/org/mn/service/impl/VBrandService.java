@@ -38,4 +38,13 @@ public class VBrandService implements IVBrandService {
 		return vBDao.findAllVBrandPageInfo(currIndex, pageSize);
 	}
 
+	/* 
+	 * @see org.mn.service.IVBrandService#findVBListToJsp()
+	 */
+	@Override
+	public List<VehicleBrand> findVBListToJsp() {
+		// TODO Auto-generated method stub
+		return vBDao.findVBListToJsp();
+	}
+
 }

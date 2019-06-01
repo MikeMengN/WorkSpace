@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>   
+<script src="web_user/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="header-bg">
@@ -40,6 +41,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<%
 					}			
 				%>
+				
+					当前城市：<span id="pro_num">郑州</span>
+					<div id="allmap"></div>
+					<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=yIX3ZhpcdZWl6v93EohAS8uX5gP8g0y5"></script>
+					<script>
+						// 百度地图API功能
+					    var map = new BMap.Map("allmap");
+					    var point = new BMap.Point(116.331398,39.897445);
+					    map.centerAndZoom(point,12);
+						//浏览器定位
+					    var geolocation = new BMap.Geolocation();
+					    geolocation.getCurrentPosition(function(r){
+					        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+					            var mk = new BMap.Marker(r.point);
+					            map.addOverlay(mk);
+					            map.panTo(r.point);
+					            // alert('您的位置：'+r.point.lng+','+r.point.lat);
+					            $('#lat').val(r.point.lat);//获取到的纬度
+					            $('#lon').val(r.point.lng);//获取到的经度
+					
+					            var gc = new BMap.Geocoder();
+					            var pointAdd = new BMap.Point(r.point.lng, r.point.lat);
+					            gc.getLocation(pointAdd, function(rs){
+					                // 百度地图解析城市名
+					                $('#pro_num').html(rs.addressComponents.city);
+					                //或者其他信息
+					                console.log(rs);
+					            })
+					        }
+					        else {
+					            alert('failed'+this.getStatus());
+					        }
+					    },{enableHighAccuracy: true});
+					</script>
 					<div class="header-right">
 						<ul class="follow_icon">
 							<li><a href="#"><img src="web_user/images/icon.png" alt=""/></a></li>

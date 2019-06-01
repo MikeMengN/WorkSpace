@@ -147,11 +147,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <form id="usedCarform" method = "post" action="usedCar/addUsedCarInfo" enctype="multipart/form-data">
 			                    <div class="form-group">
 			                        <label for="vbrand" class="control-label">车辆品牌:</label>
-			                        <input type="text" class="form-control" id="vb_id" name="vb_id">
-			                    </div>
-			                    <div class="form-group">
-			                        <label for="vtrain" class="control-label">车辆车系:</label>
-			                        <input type="text" class="form-control" id="vt_id" name="vt_id">
+			                        <select class="form-control" id = "vb_id" name = "vb_id">
+				                        <c:forEach items="${lsvb}" var = "lsvb">
+				                        	<option value = "${lsvb.vb_id}">${lsvb.vb_name}</option>
+				                        </c:forEach>
+			                        </select>
 			                    </div>
 			                    <div class="form-group">
 			                        <label for="ex_factory_price" class="control-label">出厂价:</label>
@@ -231,7 +231,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                    </div>
 			                    <div class="form-group">
 			                        <label for="lpl_id" class="control-label">车辆所在地:</label>
-			                        <input type="text" class="form-control" id="lpl_id" name="lpl_id">
+			                        <select class="form-control" id = "lpl_id" name = "lpl_id">
+				                        <c:forEach items="${lslpl}" var = "lslpl">
+				                        	<option value = "${lslpl.lpl_id}">${lslpl.city_name}</option>
+				                        </c:forEach>
+			                        </select>
 			                    </div>
 			                    <div class="form-group">
 			                        <label for="driving_type" class="control-label">驱动类型:</label>
@@ -293,7 +297,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--/. NAV TOP  -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <nav class="navbar-default navbar-side" role="navigation">
-		<div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<c:forEach items="${sessionScope.lisper}" var = "item">
@@ -329,7 +332,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <thead>
                                         <tr>
                                             <th>车辆编号</th>
-                                            <th>车辆品牌及车系</th>
+                                            <th>车辆品牌</th>
                                             <th>品牌所属国家</th>
                                             <th>车辆出厂价</th>
                                             <th>车辆现价</th>
@@ -342,7 +345,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <c:forEach items="${requestScope.lisc}" var = "lisc">
                                         <tr class="odd gradeX">
                                             <td>${lisc.uci_id}</td>
-                                            <td>${lisc.vt_id}《《${lisc.vt_id}</td>
+                                            <td>${lisc.vb_id}</td>
                                             <td>${lisc.country}</td>
                                             <td>${lisc.ex_factory_price}</td>
                                             <td>${lisc.present_price}</td>

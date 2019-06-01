@@ -11,4 +11,23 @@
 			#{buyCar.create_time}
 		)
 	</insert>
+	
+	<select id = "findIBCInfo" parameterType = "org.mn.bean.IntentionBuyCar" resultType = "org.mn.bean.IntentionBuyCar">
+		select * from intention_buy_car where user_id = #{buyCar.user_id} and uci_id = #{buyCar.uci_id}
+	</select>
+	
+	<select id = "findAllIbcPageInfo" parameterType = "java.lang.Integer" resultType = "org.mn.bean.IntentionBuyCar">
+		select a.ibc_id, b.user_name, b.user_sex, b.user_phone, 
+		c.ex_factory_price, c.present_price, d.vb_name as vb_name,
+		 a.create_time from intention_buy_car a left join user b 
+		 on a.user_id = b.user_id left join used_car_infermation c 
+		 on a.uci_id = c.uci_id left join vehicle_brand d on c.vb_id = d.vb_id
+		 limit ${currIndex}, ${pageSize}
+	</select>
+	
+	<select id = "findAllIbcInfo" parameterType = "org.mn.bean.IntentionBuyCar" resultType = "org.mn.bean.IntentionBuyCar">
+		select a.ibc_id, b.user_name, b.user_sex, b.user_phone, c.ex_factory_price, c.present_price, d.vb_name as vb_name, a.create_time from intention_buy_car a left join user b on a.user_id = b.user_id left join used_car_infermation c on a.uci_id = c.uci_id left join vehicle_brand d on c.vb_id = d.vb_id
+	</select>
+	
+	
 </mapper>

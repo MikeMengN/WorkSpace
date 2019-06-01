@@ -10,4 +10,17 @@
 			#{sellCar.create_time}
 		)
 	</insert>
+	
+	<select id = "findSellCarInfo" parameterType = "org.mn.bean.IntentionSellCar" resultType = "org.mn.bean.IntentionSellCar">
+		select * from intention_sell_car where user_id = #{sellCar.user_id} 
+	</select>
+	
+	<select id = "findSellCarPageInfo" parameterType = "java.lang.Integer" resultType = "org.mn.bean.IntentionSellCar">
+		select a.isc_id, b.user_name, b.user_sex, b.user_phone, a.create_time from intention_sell_car a LEFT JOIN user b on a.user_id = b.user_id limit ${currIndex}, ${pageSize} 
+	</select>
+	
+	<select id = "findAllSellCarInfo" resultType = "org.mn.bean.IntentionSellCar">
+		select a.isc_id, b.user_name, b.user_sex, b.user_phone, a.create_time from intention_sell_car a LEFT JOIN user b on a.user_id = b.user_id
+	</select>
+	
 </mapper>

@@ -173,33 +173,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
 		
-        <!-- 模态框，用于查看用户信息 -->
-        <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        <h4 class="modal-title" id="myModalLabel">我的信息</h4>
-			      </div>
-			      <div class="modal-body">
-			      		<label for="loginname" class="control-label">姓名: ${sessionScope.sUser.user_name}</label><br>
-			      		<label for="loginname" class="control-label">性别: <c:if test="${sessionScope.sUser.user_sex==0}">男</c:if>
-                                            <c:if test="${sessionScope.sUser.user_sex==1}">女</c:if></label><br>
-			      		<label for="loginname" class="control-label">电话: ${sessionScope.sUser.user_phone}</label><br>
-			      		
-			      </div>
-			      <div class="text-right">
-                        <button type="button" class="btn btn-default right" data-dismiss="modal">关闭</button>
-                   </div>
-		    </div>
-		  </div>
-		</div>
-        
-        
         <!--/. NAV TOP  -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <nav class="navbar-default navbar-side" role="navigation">
-		<div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<c:forEach items="${sessionScope.lisper}" var = "item">
@@ -253,9 +229,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <td class="center">${lisu.user_phone}</td>
                                             <td>
                                             <div>
-                                            <a class="btn btn-info" href = "" data-toggle="modal" data-target="#userInfo">查看</a>
-                                            <button type="button" class="btn btn-warning">修改</button>
-						  					<button type="button" class="btn btn-danger">删除</button>
+						  					<a href="user/removeUser?user_id=${lisu.user_id}"><button type="button" class="btn btn-danger">删除</button></a>
 						  					</div>
 						  					</td>
                                         </tr>

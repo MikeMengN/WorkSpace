@@ -30,4 +30,13 @@ public interface LPLocationDao {
 	 * @throws
 	 */
 	List<LicensePlateLocation> findAllLocationPageInfo(@Param("currIndex") Integer currIndex, @Param("pageSize") Integer pageSize);
+	
+	/**
+	 * @Title: findLPLInfoToJsp   
+	 * @Description:为前端准备数据    
+	 * @param: @return      
+	 * @return: List<LicensePlateLocation>      
+	 * @throws
+	 */
+	List<LicensePlateLocation> findLPLInfoToJsp();
 }

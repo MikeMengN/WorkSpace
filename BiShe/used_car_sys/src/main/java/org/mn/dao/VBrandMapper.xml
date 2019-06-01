@@ -11,4 +11,8 @@
     <select id="findAllVBrandPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.VehicleBrand">
         select vb_id, vb_name, country from vehicle_brand limit ${currIndex}, ${pageSize}   
 	</select>
+    
+    <select id="findVBListToJsp" resultType="org.mn.bean.VehicleBrand">
+        select vb_id, vb_name from vehicle_brand   
+	</select>
 </mapper>

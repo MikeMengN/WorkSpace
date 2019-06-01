@@ -39,14 +39,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </head>
 
     <body>
-		<c:if test="${requestSocope.info == '1' }">
-		<script type="text/javascript">
-			alert("对不起，您还未进行登录，请登录后再操作！");
-		</script>
-		</c:if>
+		
         <!-- Top content -->
         <div class="top-content">
-        	
+        	<%
+			if(request.getAttribute("error") == "0") {
+				%>
+				<script type="text/javascript">
+					alert("对不起，您还未进行登录，请登录后再操作！");
+				</script>
+				<%
+			}
+			%>
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">

@@ -7,7 +7,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mn.bean.LicensePlateLocation;
 import org.mn.bean.UsedCarInfo;
+import org.mn.bean.VehicleBrand;
+import org.mn.service.ILPLocationService;
+import org.mn.service.IVBrandService;
 import org.mn.service.impl.UsedCarInfoService;
 import org.mn.util.ConstantUtil;
 import org.mn.util.DateUtil;
@@ -29,6 +33,10 @@ public class UsedCarInfoController {
 	
 	@Resource
 	private UsedCarInfoService usedCarService;
+	@Resource
+	private IVBrandService ivbService;
+	@Resource
+	private ILPLocationService lplService;
 	
 	/**
 	 * @Title: findUsedCarPageInfo   
@@ -58,6 +66,10 @@ public class UsedCarInfoController {
 		List<UsedCarInfo> lisc = usedCarService.findAllUsedCarPageInfo(currIndex, pageSize);
 		// 无分页查询
 		List<UsedCarInfo> lsall = usedCarService.findAllUsedCarInfo();
+		// 为前端准备数据
+		List<VehicleBrand> lsvb = ivbService.findVBListToJsp();
+		// 城市数据
+		List<LicensePlateLocation> lslpl = lplService.findLPLInfoToJsp();
 		if(lisc != null) {
 			// 取得最大页数,通过判断奇偶的到最大页数
 			if(lsall.size()%ConstantUtil.PageSize == 0) {
@@ -71,6 +83,8 @@ public class UsedCarInfoController {
 				nowPage = maxPage;
 			}
 			request.setAttribute("lisc", lisc);
+			request.setAttribute("lsvb", lsvb);
+			request.setAttribute("lslpl", lslpl);
 			request.setAttribute("maxPage", maxPage);
 			request.setAttribute("nowPage", nowPage);
 			return "used_car_info.jsp";

@@ -28,4 +28,13 @@ public interface IVBrandService {
 	 * @throws
 	 */
 	List<VehicleBrand> findAllVBrandPageInfo(Integer currIndex, Integer pageSize);
+	
+	/**
+	 * @Title: findVBListToJsp   
+	 * @Description:为前端下拉列表准备数据  
+	 * @param: @return      
+	 * @return: List<VehicleBrand>      
+	 * @throws
+	 */
+	List<VehicleBrand> findVBListToJsp();
 }

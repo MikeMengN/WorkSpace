@@ -1,5 +1,8 @@
 package org.mn.service;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.mn.bean.IntentionSellCar;
 
 /**  
@@ -18,4 +21,32 @@ public interface IIntSellCarService {
 	 * @throws
 	 */
 	int sellCarToCompany(IntentionSellCar sellCar);
+	
+	/**
+	 * @Title: findSellCarInfo   
+	 * @Description:查询卖车信息中是否有重复
+	 * @param: @param sellCar
+	 * @return: IntentionSellCar      
+	 * @throws
+	 */
+	IntentionSellCar findSellCarInfo(IntentionSellCar sellCar);
+	
+	/**
+	 * @Title: findSellCarPageInfo   
+	 * @Description:分页查询 
+	 * @param: @param currIndex
+	 * @param: @param pageSize
+	 * @return: List<IntentionSellCar>      
+	 * @throws
+	 */
+	List<IntentionSellCar> findSellCarPageInfo(Integer currIndex, Integer pageSize);
+	
+	/**
+	 * @Title: findAllSellCarInfo   
+	 * @Description:查询所有信息 
+	 * @param: @return      
+	 * @return: List<IntentionSellCar>      
+	 * @throws
+	 */
+	List<IntentionSellCar> findAllSellCarInfo();
 }

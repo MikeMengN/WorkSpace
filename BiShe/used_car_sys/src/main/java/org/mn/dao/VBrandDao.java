@@ -30,4 +30,13 @@ public interface VBrandDao {
 	 * @throws
 	 */
 	List<VehicleBrand> findAllVBrandPageInfo(@Param("currIndex") Integer currIndex, @Param("pageSize") Integer pageSize);
+	
+	/**
+	 * @Title: findListToJsp   
+	 * @Description:查询信息，为前端页面做基础
+	 * @param: @return      
+	 * @return: List<VehicleBrand>      
+	 * @throws
+	 */
+	List<VehicleBrand> findVBListToJsp();
 }

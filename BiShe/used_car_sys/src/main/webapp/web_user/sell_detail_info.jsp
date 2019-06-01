@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>   
+<script src="web_user/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="header-bg">
@@ -21,9 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="h-bg">
 			<div class="total">
 				<div class="header">
-					<div class="box_header_user_menu">
-						<ul class="user_menu"><li class="act first"><a href=""><div class="button-t"><span>登录</span></div></a></li><li class=""><a href=""><div class="button-t"><span>注册</span></div></a></li></ul>
-					</div>
 					<div class="header-right">
 						<ul class="follow_icon">
 							<li><a href="#"><img src="web_user/images/icon.png" alt=""/></a></li>
@@ -80,7 +78,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  				<ul>
 		  					<li><a><img src="web_user/images/blog-icon1.png" title="date"><span>上架时间:${requestScope.usedCarInfo.create_time}</span></a></li>
 		  					<li><a><img src="web_user/images/blog-icon4.png" title="Admin"><span>车辆品牌:${requestScope.usedCarInfo.vb_id}</span></a></li>
-		  					<li><a><img src="web_user/images/blog-icon4.png" title="Comments"><span>车辆车系:${requestScope.usedCarInfo.vt_id}</span></a></li>
 		  					<li><a><img src="web_user/images/blog-icon4.png" title="Lables"><span>车龄:${requestScope.usedCarInfo.vehicle_age}年</span></a></li>
 		  				</ul>
 		  		</div>
@@ -112,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    	<br /><br />
 			    	<h1 style="font-family: sans-serif; font-size: 40px;"><b>点击按钮，开始您的买车之旅</b></h1>
 			    	<br /><br />
-		  			<button class="btn btn-6 btn-6a" id = "buyscar">预约看车</button>
+		  			<a href="ibc/buyCarInfoFromCompany?user_id=${sessionScope.webUser.user_id}&uci_id=${requestScope.usedCarInfo.uci_id}"><button class="btn btn-6 btn-6a" id = "buyscar">预约看车</button></a>
 		  			<br /><br /><br /><br /><br /><br />
 	   			</div>
 		  		

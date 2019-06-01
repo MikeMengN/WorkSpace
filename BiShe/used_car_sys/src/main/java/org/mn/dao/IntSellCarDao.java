@@ -1,5 +1,7 @@
 package org.mn.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.mn.bean.IntentionSellCar;
 
@@ -19,4 +21,31 @@ public interface IntSellCarDao {
 	 * @throws
 	 */
 	int sellCarToCompany(@Param("sellCar") IntentionSellCar sellCar);
+	
+	/**
+	 * @Title: findSellCarInfo   
+	 * @Description:查询信息是否重复  
+	 * @param: @param sellCar
+	 * @return: IntentionSellCar      
+	 * @throws
+	 */
+	IntentionSellCar findSellCarInfo(@Param("sellCar") IntentionSellCar sellCar);
+	
+	/**
+	 * @Title: findSellCarPageInfo   
+	 * @Description:后端分页查询  
+	 * @param: @param currIndex
+	 * @param: @param pageSize
+	 * @return: List<IntentionSellCar>      
+	 * @throws
+	 */
+	List<IntentionSellCar> findSellCarPageInfo(@Param("currIndex") Integer currIndex, @Param("pageSize") Integer pageSize);
+	
+	/**
+	 * @Title: findAllSellCarInfo   
+	 * @Description:查询所有信息 
+	 * @return: List<IntentionSellCar>      
+	 * @throws
+	 */
+	List<IntentionSellCar> findAllSellCarInfo();
 }

@@ -13,7 +13,7 @@
 	</select>
 	<!-- 查询所有用户信息(分页) -->
     <select id="findAllUserPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.User">
-        select user_id, user_name, user_phone, user_sex from user limit ${currIndex}, ${pageSize}   
+        select user_id, user_name, user_phone, user_sex from user order by create_time limit ${currIndex}, ${pageSize}   
 	</select>
 	<!-- 查询所有用户信息 -->
     <select id="findAllUserInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.User">
@@ -28,4 +28,8 @@
 	    INSERT INTO user (user_id, user_name, user_sex, user_passwd, user_resource, user_phone, create_time)  
 	    VALUES ('${user.user_id}', '${user.user_name}', ${user.user_sex}, '${user.user_passwd}', '${user.user_resource}', '${user.user_phone}', '${user.create_time}') 
 	</insert> 
+	
+	<delete id="removeUser" parameterType="java.lang.String">
+		delete from user where user_id = #{user_id}
+	</delete>
 </mapper>

@@ -39,4 +39,13 @@ public class LPLocationService implements ILPLocationService {
 		return lplDao.findAllLocationPageInfo(currIndex, pageSize);
 	}
 
+	/* 
+	 * @see org.mn.service.ILPLocationService#findLPLInfoToJsp()
+	 */
+	@Override
+	public List<LicensePlateLocation> findLPLInfoToJsp() {
+		// TODO Auto-generated method stub
+		return lplDao.findLPLInfoToJsp();
+	}
+
 }

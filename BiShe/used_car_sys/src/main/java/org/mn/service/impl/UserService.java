@@ -105,6 +105,14 @@ public class UserService implements IUserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/* 
+	 * @see org.mn.service.IUserService#removeUser(java.lang.String)
+	 */
+	@Override
+	public int removeUser(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.removeUser(user_id);
+	}
 
 }
 

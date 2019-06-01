@@ -135,34 +135,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
         
-        <!-- 模态框，用于添加权限 -->
-        <div class="modal fade" id="myModalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        <h4 class="modal-title" id="myModalLabel">添加权限</h4>
-			      </div>
-			      <div class="modal-body">
-			                <form id="roleform" action="role/addRole" >
-			                    <div class="form-group">
-			                        <label for="loginname" class="control-label">权限名:</label>
-			                        <input type="text" class="form-control" id="per_name" name="per_name">
-			                    </div>
-			                    <div class="form-group">
-			                        <label for="loginname" class="control-label">路径:</label>
-			                        <input type="text" class="form-control" id="jsp_name" name="jsp_name">
-			                    </div>
-			                    <div class="text-right">
-			                        <span id="returnMessage" class="glyphicon"> </span>
-			                        <button id="submitBtn" type="button" class="btn btn-primary" onclick="add_userinfo()" >提交</button>
-			                        <button type="button" class="btn btn-default right" data-dismiss="modal">取消</button>
-			                    </div>
-			                </form>
-			      </div>
-		    </div>
-		  </div>
-		</div>
 		
         <!-- 模态框，用于查看权限信息 -->
         <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -189,7 +161,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--/. NAV TOP  -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <nav class="navbar-default navbar-side" role="navigation">
-		<div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<c:forEach items="${sessionScope.lisper}" var = "item">
@@ -197,7 +168,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         	<a href="${item.jsp_name}"><i class="fa fa-dashboard"></i>${item.per_name}</a>
                     	</li>
 					</c:forEach>
-                   
                 </ul>
 
             </div>
@@ -214,33 +184,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             	权限管理
-                           	<div class="btn-group">
-							  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalUser">新增权限</button>
-							</div>
+                             	意向卖车者信息
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>权限编号</th>
-                                            <th>权限名称</th>
-                                            <th>路径</th>
+                                            <th>商务编号</th>
+                                            <th>用户姓名</th>
+                                            <th>用户性别</th>
+                                            <th>用户电话</th>
+                                            <th>信息创建时间</th>
                                             <th>操作</th>
                                         </tr>
                                      </thead>
                                     <tbody>
-                                    <c:forEach items="${requestScope.lisp}" var = "lisp">
+                                    <c:forEach items="${requestScope.lissell}" var = "lissell">
                                         <tr class="odd gradeX">
-                                            <td>${lisp.per_id}</td>
-                                            <td>${lisp.per_name}</td>
-                                            <td>${lisp.jsp_name}</td>
+                                            <td>${lissell.isc_id}</td>
+                                            <td>${lissell.user_name}</td>
+                                            <td>${lissell.user_sex}</td>
+                                            <td>${lissell.user_phone}</td>
+                                            <td>${lissell.create_time}</td>
                                             <td>
                                             <div>
                                             <a class="btn btn-info" href = "" data-toggle="modal" data-target="#roleInfo">查看</a>
-                                            <button type="button" class="btn btn-warning">修改</button>
-						  					<button type="button" class="btn btn-danger">删除</button>
 						  					</div>
 						  					</td>
                                         </tr>
@@ -249,12 +218,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </table>
                             <div class="container">
 							  <ul class="pagination pagination-sm">
-							    <li class="page-item"><a class="page-link" href="role/findAllRoleInfo?page=${requestScope.nowPage-1}">上一页</a></li>
+							    <li class="page-item"><a class="page-link" href="isc/findSellCarPageInfo?page=${requestScope.nowPage-1}">上一页</a></li>
 							    <li class="page-item disabled"><a class="page-link"><c:if test="${requestScope.nowPage==1}">首页</c:if>
 							    <c:if test="${requestScope.nowPage!=1}">第${requestScope.nowPage}页</c:if></a></li>
 							    <li class="page-item disabled"><a class="page-link">...</a></li>
 							    <li class="page-item disabled"><a class="page-link">共${requestScope.maxPage}页</a></li>
-							    <li class="page-item"><a class="page-link" href="role/findAllRoleInfo?page=${requestScope.nowPage+1}">下一页</a></li>
+							    <li class="page-item"><a class="page-link" href="isc/findSellCarPageInfo?page=${requestScope.nowPage+1}">下一页</a></li>
 							  </ul>
 							</div>
 							

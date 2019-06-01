@@ -76,4 +76,14 @@ public interface UserDao {
 	 * @throws
 	 */
 	public User findDetailUser(String user_id);
+	
+	/**
+	 * @Title: removeUser   
+	 * @Description:根据id删除用户
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int removeUser(@Param("user_id")String user_id);
 }

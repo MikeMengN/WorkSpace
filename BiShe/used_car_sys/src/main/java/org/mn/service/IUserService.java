@@ -73,4 +73,14 @@ public interface IUserService {
 	 * @throws
 	 */
 	User findDetailUser(String user_id);
+	
+	/**
+	 * @Title: removeUser   
+	 * @Description:根据id删除用户  
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int removeUser(String user_id);
 }

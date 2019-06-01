@@ -29,4 +29,13 @@ public interface ILPLocationService {
 	 * @throws
 	 */
 	List<LicensePlateLocation> findAllLocationPageInfo(Integer currIndex, Integer pageSize);
+	
+	/**
+	 * @Title: findLPLInfoToJsp   
+	 * @Description:查询数据，作为前端数据源 
+	 * @param: @return      
+	 * @return: List<LicensePlateLocation>      
+	 * @throws
+	 */
+	List<LicensePlateLocation> findLPLInfoToJsp();
 }

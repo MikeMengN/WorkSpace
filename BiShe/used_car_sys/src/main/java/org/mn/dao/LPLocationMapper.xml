@@ -11,4 +11,8 @@
     <select id="findAllLocationPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.LicensePlateLocation">
         select lpl_id, city_name, create_time from license_plate_location limit ${currIndex}, ${pageSize}   
 	</select>
+	
+    <select id="findLPLInfoToJsp" resultType="org.mn.bean.LicensePlateLocation">
+        select lpl_id, city_name from license_plate_location  
+	</select>
 </mapper>

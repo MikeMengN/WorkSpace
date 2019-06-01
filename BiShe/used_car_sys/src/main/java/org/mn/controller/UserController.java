@@ -70,7 +70,7 @@ public class UserController {
 		if(webUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("webUser", webUser);
-			return "/web_user/index.jsp";
+			return "usedCar/findUsedCarInfoToWeb";
 		} else {
 			return "redirect:/web_user/index.jsp";
 		}
@@ -213,4 +213,17 @@ public class UserController {
 		return "/web_user/regist.jsp";
 	}
 	
+	@RequestMapping(value = "/removeUser")
+	public String removeUser(HttpServletRequest request, HttpServletResponse response, String user_id) {
+		
+		int result = userService.removeUser(user_id);
+		if(result > 0) {
+			request.setAttribute("info", "0");
+			return "user/findAllUserInfo";
+		} else {
+			request.setAttribute("error", "1");
+			return "user/findAllUserInfo";
+		}
+		
+	}
 }

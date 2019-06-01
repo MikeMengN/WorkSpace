@@ -37,4 +37,13 @@ public interface IntBuyCarDao {
 	 * @throws
 	 */
 	int buyCarInfoFromCompany(@Param("buyCar") IntentionBuyCar buyCar);
+	
+	/**
+	 * @Title: findIBCInfo   
+	 * @Description: 查询数据库中是否有重复信息   
+	 * @param: @param buyCar
+	 * @return: IntentionBuyCar      
+	 * @throws
+	 */
+	IntentionBuyCar findIBCInfo(@Param("buyCar") IntentionBuyCar buyCar);
 }

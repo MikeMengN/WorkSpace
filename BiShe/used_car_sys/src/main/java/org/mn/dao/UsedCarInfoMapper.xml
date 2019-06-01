@@ -13,16 +13,20 @@
 	
 	<!-- 查询所有二手车信息(分页) -->
     <select id="findAllUsedCarPageInfo" parameterType="java.lang.Integer" resultType="org.mn.bean.UsedCarInfo">
-        select uci_id, vb_id, vt_id, ex_factory_price, present_price, vehicle_age,
-			transmission, vehicle_model, road_hual, displacement, effluent_standard,
-			seating, fuel_type, color, lpl_id, driving_type, country, highlight_the_configuration,
-			picture1, picture2, picture3, qi_id, create_time
-		from used_car_infermation order by create_time limit ${currIndex}, ${pageSize}   
+        
+        select a.uci_id, b.vb_name as vb_id, b.country, c.vt_name as vt_id, a.ex_factory_price, a.present_price, a.vehicle_age,
+			a.transmission, a.vehicle_model, a.road_hual, a.displacement, a.effluent_standard,
+			a.seating, a.fuel_type, a.color, d.city_name as lpl_id, a.driving_type, b.country as country , 
+			a.highlight_the_configuration, a.create_time, a.picture1
+			from 
+			used_car_infermation a LEFT join vehicle_brand b on a.vb_id = b.vb_id 
+			LEFT join vehicle_train c on a.vt_id = c.vt_id LEFT join license_plate_location d on a.lpl_id = d.lpl_id order by create_time limit ${currIndex}, ${pageSize}
+        
 	</select>
 	
 	<!-- 根据查询二手车信息 -->
     <select id="findUsedCarInfoByUci_Id" parameterType="java.lang.String" resultType="org.mn.bean.UsedCarInfo">
-        select b.vb_name as vb_id, c.vt_name as vt_id, a.present_price, a.vehicle_age,
+        select a.uci_id, b.vb_name as vb_id, c.vt_name as vt_id, a.present_price,a.ex_factory_price, a.vehicle_age,
 			a.transmission, a.vehicle_model, a.road_hual, a.displacement, a.effluent_standard,
 			a.seating, a.fuel_type, a.color, d.city_name as lpl_id, a.driving_type, b.country as country , 
 			a.highlight_the_configuration, a.create_time, a.picture1
