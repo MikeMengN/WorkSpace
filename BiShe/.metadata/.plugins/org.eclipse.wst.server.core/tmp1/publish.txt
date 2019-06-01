@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Mon May 27 21:59:52 GMT+08:00 2019
+org.eclipse.jst.jee.server\:/binary\:D\:\\maven\\repository\\org\\springframework\\spring-web\\4.3.8.RELEASE\\spring-web-4.3.8.RELEASE.jar=C\:\\MySoftware\\Tomcat\\apache-tomcat-8.5.39\\apache-tomcat-8.5.39\\webapps\\used_car_sys\\WEB-INF\\lib\\spring-web-4.3.8.RELEASE.jar
+org.eclipse.jst.jee.server\:used_car_sys=C\:\\MySoftware\\Tomcat\\apache-tomcat-8.5.39\\apache-tomcat-8.5.39\\webapps\\used_car_sys

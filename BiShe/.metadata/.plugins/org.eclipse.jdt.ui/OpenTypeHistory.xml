@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IUserService.java[IUserService" modifiers="513" timestamp="1558376945558"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IRoleService.java[IRoleService" modifiers="513" timestamp="1557069907107"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IIntBuyCarService.java[IIntBuyCarService" modifiers="513" timestamp="1558372059338"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IIntSellCarService.java[IIntSellCarService" modifiers="513" timestamp="1558370633958"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{ILPLocationService.java[ILPLocationService" modifiers="513" timestamp="1558374973905"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IQInspectionService.java[IQInspectionService" modifiers="513" timestamp="1554379966151"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IUsedCarInfoService.java[IUsedCarInfoService" modifiers="513" timestamp="1558341586735"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IVBrandService.java[IVBrandService" modifiers="513" timestamp="1558373617403"/>
+<typeInfo handle="=used_car_sys/src\/main\/java&lt;org.mn.service{IVTrainService.java[IVTrainService" modifiers="513" timestamp="1557156253539"/>
+<typeInfo handle="=used_car_sys/D:\/maven\/repository\/org\/springframework\/spring-webmvc\/4.3.8.RELEASE\/spring-webmvc-4.3.8.RELEASE.jar&lt;org.springframework.web.servlet(HandlerInterceptor.class[HandlerInterceptor" modifiers="1537" timestamp="1553741965734"/>
+</typeInfoHistroy>

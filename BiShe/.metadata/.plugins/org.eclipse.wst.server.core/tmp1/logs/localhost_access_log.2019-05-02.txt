@@ -1,0 +1,9 @@
+127.0.0.1 - - [02/May/2019:22:03:07 +0800] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:13 +0800] "GET /used_car_sys/user/login HTTP/1.1" 500 3745
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:13 +0800] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:26 +0800] "GET /used_car_sys/ HTTP/1.1" 200 1200
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:26 +0800] "GET /used_car_sys/public/ui/config.js HTTP/1.1" 200 168
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:26 +0800] "GET /used_car_sys/public/css/login.css HTTP/1.1" 200 168
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:26 +0800] "GET /used_car_sys/public/ui/do.js HTTP/1.1" 200 168
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:26 +0800] "GET /used_car_sys/public/css/base.css HTTP/1.1" 200 168
+0:0:0:0:0:0:0:1 - - [02/May/2019:22:03:30 +0800] "POST /used_car_sys/user/login HTTP/1.1" 200 8709

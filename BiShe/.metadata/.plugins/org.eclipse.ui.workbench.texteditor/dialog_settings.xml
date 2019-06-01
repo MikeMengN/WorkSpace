@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="sideNav" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="sideNav"/>
+			<item value=" class=&quot;active-menu&quot;"/>
+			<item value="1.jpg"/>
+			<item value="assets/"/>
+			<item value="userform"/>
+			<item value="#myModalUser"/>
+			<item value="myModalUser"/>
+			<item value="add_userinfo"/>
+		</list>
+		<list key="replacehistory">
+			<item value="web_user/assets/"/>
+			<item value="web_user/images/"/>
+			<item value="web_user/images"/>
+			<item value="add_usedCarInfo"/>
+			<item value="addUsedInfo"/>
+			<item value="Integer"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="356" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="825" key="DIALOG_X_ORIGIN"/>
+		<item value="419" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>
